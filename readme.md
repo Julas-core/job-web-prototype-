@@ -50,17 +50,23 @@ JOBLaunch enables two user roles:
 	 $password = "";
 	 $dbname = "job_launch";
 	 ```
-4. Place the project under your web root (e.g., `C:\xampp\htdocs\job-web`if you're using xampp, `C:\wamp64\www\job-web` if you're using wamp) or run the PHP built-in server:
-	 ```
-	 php -S localhost:8000 -t path\to\job-web(prototype)
-	 ```
+4. Run the database schema: Import `backendwithphp/databasescema.sql` into your MySQL database.
+5. Start the PHP server: `php -S localhost:8000 -t .`
+6. Open http://localhost:8000 in your browser.
+
+## Quick Demo
+- The PHP development server is now running at http://localhost:8000
+- Static pages (HTML) are accessible.
+- For full functionality (login, register, post jobs, apply), set up MySQL as above.
+- Core features demonstrated: Navigation, static job listings (once DB is set up).
 
 ## Database Notes
 - Ensure the following tables exist and align with the code references:
-	- `users`: `user_id` (PK), `email` (unique), `password_hash`, `roles` (values like `job_seeker` or `company`).
-	- `company`: includes `company_id`, `user_id`, `company_name`, etc.
-	- `job_seeker`: includes `user_id`, `fullname`, `profession_title`, etc.
-	- `jobs`: includes `job_id`, `company_id`, `title`, `location`, `type`, `salary`, `created_at`.
+	- `users`: `id` (PK), `email` (unique), `password`, `role` (values like `job_seeker` or `company`), `created_at`.
+	- `company`: `id` (PK), `user_id`, `company_name`, `contact_name`, `description`, `representative`, `location`.
+	- `job_seeker`: `id` (PK), `user_id`, `fullname`, `profession_title`, `skill_level`, `city`, `primary_interest`, `bio`, `portofilio_link`.
+	- `jobs`: `id` (PK), `company_id`, `title`, `description`, `location`, `type`, `requirements`, `salary`, `created_at`.
+	- `applications`: `id` (PK), `job_id`, `user_id`, `seeker_id`, `fullname`, `skill_level`, `expected_salary`, `resumee`, `cover`, `telegram`, `portfolio`, `created_at`.
 - `index.php` queries: latest jobs via `LEFT JOIN` `jobs` → `company`.
 
 ## Security & Coding Patterns
@@ -86,12 +92,3 @@ JOBLaunch enables two user roles:
 - Harden authentication with prepared statements in `login.php`.
 - Add validation and CSRF protections on forms.
 - Add pagination and search for job listings.
-
-
-**JOBLaunch**
-This is a prototype version of JOBLaunch site that is being developed by Computer Science Students of Mekelle University, it has some basic features that are listed below:
-
-**features**
-*Authentication* : users can sign in as either job seekers or employers.
-*Job-posting* : company's / employers can post jobs that job seekers can then click apply to.
-*Job-Application* : job seekers can click apply to the jobs that are posted by employers.
