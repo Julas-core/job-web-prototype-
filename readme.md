@@ -13,7 +13,7 @@ JOBLaunch enables two user roles:
 - The final submission will migrate backend services to Supabase (PostgreSQL + auth + storage) to deliver a managed BaaS deployment.
 - Expect changes to connection/config, auth flows, and data models when the Supabase version is prepared for submission.
 
-## Tech Stack
+## Technology Stack
 - Core PHP (no framework)
 - MySQL (`mysqli` with prepared statements)
 - HTML/CSS (static pages progressively upgraded to PHP)
