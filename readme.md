@@ -19,9 +19,9 @@ JOBLaunch enables two user roles:
 - HTML/CSS (static pages progressively upgraded to PHP)
 
 ## Project Structure
-- Root public pages: `index.php`, `index.html`, `login.html`, `register.html`, `about.html`, `contact.html`, `catagories.html`, `jobs_list.html`
+- Root public pages: `index.php`, `index.html`, `login.php`, `register.php`, `about.php`, `contact.php`, `catagories.php`, `jobs_list.php`
 - Dashboards and views (prototype): `Users/`
-	- `employer_dashboard.html`, `seeker_dashboard.html`, `post_job.html`, `job_detail.html`, `my_posting.html|.php`, `view_applications.html`, etc.
+	- `employer_dashboard.php`, `seeker_dashboard.html`, `post_job.php`, `job_detail.php`, `my_posting.php|.php`, `view_applications.php`, etc.
 - Backend logic: `backendwithphp/`
 	- `db_conection.php` (MySQL connection; DB name: `job_launch`)
 	- `register.php`, `login.php`, `logout.php` (auth + sessions)
