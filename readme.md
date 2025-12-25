@@ -1,4 +1,4 @@
-# JOBLaunch Prototype
+# JobLaunch Prototype
 
 A student-built job portal prototype created by Computer Science students at Mekelle University. The app is transitioning from static HTML to a dynamic Core PHP + MySQL site.
 
