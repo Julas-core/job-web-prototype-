@@ -1,0 +1,1485 @@
+/* =========================================
+    1. IMPORTS & FONTS
+    ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap');
+
+/* =========================================
+    2. VARIABLES (:ROOT)
+    ========================================= */
+:root {
+     --bg: #2d2d2d;
+     --panel: #1f1f1f;
+     --card: #0f0f0f;
+     --card-muted: #6b6b6b;
+     --text: #f5f5f5;
+     --muted: #c7c7c7;
+     --accent-green: #00d12d;
+     --accent-teal: #00c7c7;
+     --accent-purple: #7c1fd2;
+     --accent-red: #f44336;
+     --shadow: 0 18px 38px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================================
+    3. RESET & BASE STYLES
+    ========================================= */
+* {
+     box-sizing: border-box;
+}
+
+body {
+     margin: 0;
+     /* Note: You had two body declarations. The variables below override the top ones. */
+     background: var(--bg);
+     color: var(--text);
+     font-family: 'Manrope', 'Sora', sans-serif;
+     line-height: 1.6;
+     -webkit-font-smoothing: antialiased;
+}
+
+body.nav-open {
+     overflow: hidden;
+}
+
+a {
+     color: inherit;
+     text-decoration: none;
+}
+
+img {
+     max-width: 100%;
+     height: auto;
+     display: block;
+}
+
+/* =========================================
+    4. LAYOUT UTILITIES
+    ========================================= */
+.page-wrap {
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+}
+
+
+
+/* =========================================
+    5. LEGACY / ALTERNATIVE NAVIGATION
+    (From the top of your original file)
+    ========================================= */
+.navcontainer {
+     width: 100%;
+     height: 60px;
+     background-color: #5E2080;
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+}
+
+nav {
+     width: 90%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+nav ul li {
+     display: inline;
+     margin: 0 15px;
+     list-style-type: none;
+     padding: 0.5rem;
+     margin: 0;
+}
+
+nav ul li a {
+     text-decoration: none;
+     color: #ffffff;
+     font-weight: 600;
+     font-size: 0.85rem;
+}
+
+ul.navlist-logo,
+nav ul.navlist-left,
+nav ul.navlist-Center {
+     display: flex;
+     align-items: center;
+}
+
+nav ul.navlist-Center {
+     gap: 18px;
+}
+
+/* =========================================
+    6. MAIN NAVIGATION (MODERN)
+    ========================================= */
+.navbar {
+     width: 100%;
+     padding: 22px 34px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     position: sticky;
+     top: 0;
+     z-index: 11;
+     background: var(--bg);
+}
+
+.brand {
+     font-family: 'Sora', sans-serif;
+     font-size: 1.8rem;
+     font-weight: 800;
+     letter-spacing: 0.2px;
+}
+
+.nav-drawer {
+     display: flex;
+     align-items: center;
+     gap: 22px;
+     margin-left: auto;
+}
+
+.nav-links,
+.auth-links {
+     display: flex;
+     align-items: center;
+     gap: 22px;
+}
+
+.nav-links {
+     order: 1;
+}
+
+.auth-links {
+     order: 2;
+     margin-left: 18px;
+}
+
+.nav-links a {
+     padding: 6px 4px;
+     font-weight: 600;
+     color: var(--text);
+     transition: color .15s ease;
+}
+
+.nav-links a.active {
+     color: var(--accent-green);
+}
+
+.nav-links a:hover {
+     color: var(--accent-teal);
+}
+
+.auth-links a {
+     font-weight: 700;
+}
+
+.auth-links .divider {
+     opacity: 0.6;
+}
+
+/* Mobile Toggle */
+.nav-toggle {
+     display: none;
+     align-items: center;
+     justify-content: center;
+     width: 44px;
+     height: 44px;
+     border: 2px solid rgba(255, 255, 255, 0.2);
+     border-radius: 10px;
+     background: transparent;
+     color: var(--text);
+     cursor: pointer;
+     transition: transform .12s ease, border-color .12s ease;
+}
+
+.nav-toggle:hover {
+     transform: translateY(-1px);
+     border-color: var(--accent-teal);
+}
+
+.nav-toggle span {
+     width: 18px;
+     height: 2px;
+     background: currentColor;
+     position: relative;
+     display: block;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+     content: '';
+     position: absolute;
+     left: 0;
+     width: 18px;
+     height: 2px;
+     background: currentColor;
+}
+
+.nav-toggle span::before {
+     top: -6px;
+}
+
+.nav-toggle span::after {
+     top: 6px;
+}
+
+/* =========================================
+    7. UI COMPONENTS (Buttons & Inputs)
+    ========================================= */
+/* Buttons */
+.btn {
+    display: flex;
+     border: none;
+     cursor: pointer;
+     border-radius: 10px;
+     font-weight: 800;
+     font-size: 1rem;
+     padding: 12px 22px;
+     transition: transform .12s ease, box-shadow .12s ease;
+     background: var(--accent-teal);
+     color: #043;
+     text-align: center;
+     box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+.btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 18px 34px rgba(0, 0, 0, 0.55);
+}
+
+.btn-green {
+     background: var(--accent-green);
+     color: #041;
+}
+
+.btn-ghost {
+     background: transparent;
+     border: 2px solid var(--accent-green);
+     color: var(--text);
+     box-shadow: none;
+}
+
+/* Inputs */
+.input,
+textarea,
+select {
+     width: 100%;
+     background: transparent;
+     color: var(--text);
+     border: 3px solid var(--accent-teal);
+     border-radius: 10px;
+     padding: 14px 16px;
+     font-size: 1rem;
+     outline: none;
+     transition: border-color .15s ease, box-shadow .15s ease, transform .08s ease;
+}
+
+.input::placeholder,
+textarea::placeholder {
+     color: rgba(255, 255, 255, 0.45);
+}
+
+.input:focus,
+textarea:focus,
+select:focus {
+     border-color: var(--accent-teal);
+     box-shadow: 0 0 0 7px rgba(0, 199, 199, 0.08);
+     transform: translateY(-1px);
+}
+
+textarea {
+     resize: vertical;
+     min-height: 180px;
+     line-height: 1.5;
+}
+
+/* =========================================
+    8. TYPOGRAPHY & HEADINGS
+    ========================================= */
+.section-title {
+     font-family: 'Sora', sans-serif;
+     font-size: 2.2rem;
+     text-align: center;
+     margin: 0 0 32px;
+     color: #e9e9e9;
+}
+
+.subtle {
+     color: var(--muted);
+     font-weight: 500;
+}
+
+.hero {
+     background: url(./designs/meeting_image_for_hero_section.avif) no-repeat center center/cover;
+     padding: 130px 36px 110px;
+     border-radius: 30px;
+     margin: 26px auto 70px;
+     position: relative;
+     overflow: hidden;
+     box-shadow: 0 26px 52px rgba(0, 0, 0, 0.55);
+}
+
+.hero h1 {
+     margin: 0;
+     font-size: clamp(2.6rem, 4vw, 3.8rem);
+     font-family: 'Sora', sans-serif;
+     line-height: 1.15;
+     max-width: 740px;
+     color: black;
+}
+
+.hero h1 .accent-purple {
+     color: var(--accent-green);
+}
+
+.hero-copy {
+     margin: 16px 0 0;
+     color: #00d12d;
+     max-width: 640px;
+     font-size: 1.05rem;
+     font-weight: bold;
+}
+
+.hero-btn {
+     background: var(--accent-green);
+     color: #fff;
+     min-width: 140px;
+     border-radius: 14px;
+     padding: 14px 24px;
+     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Search Box inside Hero */
+.search-row {
+     margin-top: 30px;
+     display: flex;
+     gap: 14px;
+     align-items: center;
+     flex-wrap: wrap;
+}
+
+.search-box {
+     flex: 1;
+     min-width: 260px;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     background: #fff;
+     color: #111;
+     border-radius: 14px;
+     padding: 12px 14px;
+     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+.search-box i {
+     color: #5a5a5a;
+     font-size: 1.1rem;
+}
+
+.search-input {
+     border: none;
+     outline: none;
+     font-weight: 700;
+     font-size: 1rem;
+     width: 100%;
+     background: transparent;
+     color: #222;
+}
+
+.register-hero-wrap {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0 50px;
+}
+
+.register-card {
+    width: min(520px, 95%);
+    margin: 0 auto;
+}
+
+.register-info {
+    background: linear-gradient(145deg, #134d62, #0c1f3b);
+    border-radius: 22px;
+    padding: 36px 30px;
+    box-shadow: 0 26px 48px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #dff8f6;
+}
+
+.register-info h1 {
+    margin: 0 0 12px;
+    font-size: 2.5rem;
+    font-family: 'Sora', sans-serif;
+}
+
+.register-info .subtle {
+    display: block;
+    font-size: 1.05rem;
+    color: rgba(223, 248, 246, 0.82);
+    max-width: 520px;
+    margin-bottom: 18px;
+}
+
+.register-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.register-pill {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(0, 199, 199, 0.14);
+    color: #dff8f6;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(0, 199, 199, 0.22);
+}
+
+.register-card {
+    background: transparent;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+}
+
+.register-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+    align-items: center;
+    
+}
+
+.register-tab {
+    background: transparent;
+    border: 2px solid rgba(0, 199, 199, 0.6);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all .12s ease;
+}
+
+.register-tab.active {
+    background: linear-gradient(120deg, #00c7c7, #7c1fd2);
+    color: #041;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+.register-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 6px;
+    
+}
+
+.register-form .full {
+    grid-column: 1 / -1;
+}
+
+.register-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.register-note {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 10px;
+}
+
+/*Dashboard styling*/
+.dashboard-shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh;background:transparent;width:100%;}
+.sidebar{background:#111;padding:28px 22px;display:flex;flex-direction:column;gap:22px;box-shadow:12px 0 32px rgba(0,0,0,0.45);height:100%;}
+.sidebar .avatar{width:60px;height:60px;border-radius:50%;background:#ccc;margin-bottom:6px;}
+.sidebar h3{margin:0;font-size:1.2rem;}
+.sidebar nav{display:flex;flex-direction:column;gap:14px;}
+.sidebar a{color:var(--text);font-weight:600;}
+.sidebar a.active{color:var(--accent-green);} 
+
+.dashboard-main{padding:34px 28px;display:flex;flex-direction:column;gap:22px;width:100%;}
+.dashboard-main h1{margin:0;font-size:2.6rem;font-family:'Sora',sans-serif;}
+.dashboard-main h2{margin:0;font-size:1.2rem;font-weight:800;}
+
+.profile-hero{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;}
+.profile-hero .big-avatar{width:180px;height:180px;border-radius:50%;background:#d7d7d7;box-shadow:0 16px 32px rgba(0,0,0,0.45);} 
+.profile-jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+/* JOB LISTING GRID */
+
+.job-section{padding:70px 0;}
+.job-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;}
+.job-card{background:var(--card-muted);border-radius:10px;box-shadow:0 18px 28px rgba(0,0,0,0.45);padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px;color:#fff;} 
+.job-header{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.job-company{font-size:1.2rem;font-weight:800;}
+.job-location{color:#f3b1b1;display:flex;align-items:center;gap:8px;font-weight:600;}
+.job-role{font-size:1.35rem;font-weight:800;margin:6px 0 0;}
+.job-meta{display:flex;gap:12px;flex-wrap:wrap;color:#cfcfcf;font-size:0.9rem;align-items:center;}
+.job-meta span{display:flex;align-items:center;gap:6px;}
+.job-desc{color:#f1f1f1;font-weight:500;line-height:1.35;min-height:82px;}
+.job-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+.job-salary{color:var(--accent-green);font-weight:900;}
+.job-apply{min-width:120px;background:var(--accent-green);color:#053;font-size:1.05rem;border-radius:10px;border:none;padding:10px 18px;cursor:pointer;font-weight:800;box-shadow:0 12px 22px rgba(0,0,0,0.45);} 
+
+/* APPLY FORM */
+
+.apply-card{width:min(1000px,94vw);gap:22px;}
+.apply-textarea textarea{min-height:260px;background:#dcdcdc;color:#444;border-radius:12px;border:none;padding:16px;font-size:1rem;}
+.apply-textarea textarea:focus{outline:3px solid var(--accent-teal);box-shadow:0 0 0 7px rgba(0,199,199,0.1);} 
+.apply-row{display:flex;flex-direction:column;gap:8px;}
+.apply-actions{display:flex;gap:12px;align-items:center;}
+
+/* =========================================
+    1. IMPORTS & FONTS
+    ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap');
+
+/* =========================================
+    2. VARIABLES (:ROOT)
+    ========================================= */
+:root {
+     --bg: #2d2d2d;
+     --panel: #1f1f1f;
+     --card: #0f0f0f;
+     --card-muted: #6b6b6b;
+     --text: #f5f5f5;
+     --muted: #c7c7c7;
+     --accent-green: #00d12d;
+     --accent-teal: #00c7c7;
+     --accent-purple: #7c1fd2;
+     --accent-red: #f44336;
+     --shadow: 0 18px 38px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================================
+    3. RESET & BASE STYLES
+    ========================================= */
+* {
+     box-sizing: border-box;
+}
+
+body {
+     margin: 0;
+     /* Note: You had two body declarations. The variables below override the top ones. */
+     background: var(--bg);
+     color: var(--text);
+     font-family: 'Manrope', 'Sora', sans-serif;
+     line-height: 1.6;
+     -webkit-font-smoothing: antialiased;
+}
+
+body.nav-open {
+     overflow: hidden;
+}
+
+a {
+     color: inherit;
+     text-decoration: none;
+}
+
+img {
+     max-width: 100%;
+     height: auto;
+     display: block;
+}
+
+/* =========================================
+    4. LAYOUT UTILITIES
+    ========================================= */
+.page-wrap {
+     min-height: 100vh;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     margin: 0;
+     padding: 0;
+}
+
+.container {
+     width: 100%;
+     max-width: 100%;
+     margin: 0;
+     padding: 0;
+}
+
+/* =========================================
+    5. LEGACY / ALTERNATIVE NAVIGATION
+    (From the top of your original file)
+    ========================================= */
+.navcontainer {
+     width: 100%;
+     height: 60px;
+     background-color: #5E2080;
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+}
+
+nav {
+     width: 90%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+nav ul li {
+     display: inline;
+     margin: 0 15px;
+     list-style-type: none;
+     padding: 0.5rem;
+     margin: 0;
+}
+
+nav ul li a {
+     text-decoration: none;
+     color: #ffffff;
+     font-weight: 600;
+     font-size: 0.85rem;
+}
+
+ul.navlist-logo,
+nav ul.navlist-left,
+nav ul.navlist-Center {
+     display: flex;
+     align-items: center;
+}
+
+nav ul.navlist-Center {
+     gap: 18px;
+}
+
+/* =========================================
+    6. MAIN NAVIGATION (MODERN)
+    ========================================= */
+.navbar {
+     width: 100%;
+     padding: 22px 34px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     position: sticky;
+     top: 0;
+     z-index: 11;
+     background: var(--bg);
+}
+
+.brand {
+     font-family: 'Sora', sans-serif;
+     font-size: 1.8rem;
+     font-weight: 800;
+     letter-spacing: 0.2px;
+}
+
+.nav-drawer {
+     display: flex;
+     align-items: center;
+     gap: 22px;
+     margin-left: auto;
+}
+
+.nav-links,
+.auth-links {
+     display: flex;
+     align-items: center;
+     gap: 22px;
+}
+
+.nav-links {
+     order: 1;
+}
+
+.auth-links {
+     order: 2;
+     margin-left: 18px;
+}
+
+.nav-links a {
+     padding: 6px 4px;
+     font-weight: 600;
+     color: var(--text);
+     transition: color .15s ease;
+}
+
+.nav-links a.active {
+     color: var(--accent-green);
+}
+
+.nav-links a:hover {
+     color: var(--accent-teal);
+}
+
+.auth-links a {
+     font-weight: 700;
+}
+
+.auth-links .divider {
+     opacity: 0.6;
+}
+
+/* Mobile Toggle */
+.nav-toggle {
+     display: none;
+     align-items: center;
+     justify-content: center;
+     width: 44px;
+     height: 44px;
+     border: 2px solid rgba(255, 255, 255, 0.2);
+     border-radius: 10px;
+     background: transparent;
+     color: var(--text);
+     cursor: pointer;
+     transition: transform .12s ease, border-color .12s ease;
+}
+
+.nav-toggle:hover {
+     transform: translateY(-1px);
+     border-color: var(--accent-teal);
+}
+
+.nav-toggle span {
+     width: 18px;
+     height: 2px;
+     background: currentColor;
+     position: relative;
+     display: block;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+     content: '';
+     position: absolute;
+     left: 0;
+     width: 18px;
+     height: 2px;
+     background: currentColor;
+}
+
+.nav-toggle span::before {
+     top: -6px;
+}
+
+.nav-toggle span::after {
+     top: 6px;
+}
+
+/*btn*/
+
+.btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 18px 34px rgba(0, 0, 0, 0.55);
+}
+
+.btn-green {
+     background: var(--accent-green);
+     color: #041;
+}
+
+.btn-ghost {
+     background: transparent;
+     border: 2px solid var(--accent-green);
+     color: var(--text);
+     box-shadow: none;
+}
+
+/* Inputs */
+.input,
+textarea,
+select {
+     width: 100%;
+     background: transparent;
+     color: var(--text);
+     border: 3px solid var(--accent-teal);
+     border-radius: 10px;
+     padding: 14px 16px;
+     font-size: 1rem;
+     outline: none;
+     transition: border-color .15s ease, box-shadow .15s ease, transform .08s ease;
+     margin-bottom: 14px;
+}
+
+.input::placeholder,
+textarea::placeholder {
+     color: rgba(255, 255, 255, 0.45);
+}
+
+.input:focus,
+textarea:focus,
+select:focus {
+     border-color: var(--accent-teal);
+     box-shadow: 0 0 0 7px rgba(0, 199, 199, 0.08);
+     transform: translateY(-1px);
+}
+
+textarea {
+     resize: vertical;
+     min-height: 180px;
+     line-height: 1.5;
+}
+
+/* =========================================
+    8. TYPOGRAPHY & HEADINGS
+    ========================================= */
+.section-title {
+     font-family: 'Sora', sans-serif;
+     font-size: 2.2rem;
+     text-align: center;
+     margin: 0 0 32px;
+     color: #e9e9e9;
+}
+
+.subtle {
+     color: var(--muted);
+     font-weight: 500;
+}
+
+.hero {
+     background: url(./designs/meeting_image_for_hero_section.avif) no-repeat center center/cover;
+     padding: 130px 36px 110px;
+     border-radius: 30px;
+     margin: 26px auto 70px;
+     position: relative;
+     overflow: hidden;
+     box-shadow: 0 26px 52px rgba(0, 0, 0, 0.55);
+}
+
+.hero h1 {
+     margin: 0;
+     font-size: clamp(2.6rem, 4vw, 3.8rem);
+     font-family: 'Sora', sans-serif;
+     line-height: 1.15;
+     max-width: 740px;
+     color: black;
+}
+
+.hero h1 .accent-purple {
+     color: var(--accent-green);
+}
+
+.hero-copy {
+     margin: 16px 0 0;
+     color: #00d12d;
+     max-width: 640px;
+     font-size: 1.05rem;
+     font-weight: bold;
+}
+
+.hero-btn {
+     background: var(--accent-green);
+     color: #fff;
+     min-width: 140px;
+     border-radius: 14px;
+     padding: 14px 24px;
+     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Search Box inside Hero */
+.search-row {
+     margin-top: 30px;
+     display: flex;
+     gap: 14px;
+     align-items: center;
+     flex-wrap: wrap;
+}
+
+.search-box {
+     flex: 1;
+     min-width: 260px;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     background: #fff;
+     color: #111;
+     border-radius: 14px;
+     padding: 12px 14px;
+     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+.search-box i {
+     color: #5a5a5a;
+     font-size: 1.1rem;
+}
+
+.search-input {
+     border: none;
+     outline: none;
+     font-weight: 700;
+     font-size: 1rem;
+     width: 100%;
+     background: transparent;
+     color: #222;
+}
+
+/* ABOUT */
+.about{padding:80px 0;display:grid;grid-template-columns:1.1fr 0.9fr;gap:34px;align-items:center;position:relative;}
+.about .eyebrow{color:var(--accent-green);font-weight:800;letter-spacing:0.6px;margin-bottom:10px;}
+.about h2{font-family:'Sora',sans-serif;font-size:2.8rem;margin:0 0 18px;}
+.about h2 span{color:var(--accent-green);} 
+.about p{color:var(--text);font-size:1.1rem;max-width:600px;}
+.about-figure{position:relative;align-self:end;} 
+.about-figure img{width:100%;max-width:520px;filter:drop-shadow(0 16px 36px rgba(0,0,0,0.6));}
+
+
+/* CONTACT */
+.contact-section{padding:100px 0;text-align:center;}
+.contact-form{width:min(1100px,92vw);margin:0 auto;display:grid;gap:20px;background:transparent;padding:0;}
+.contact-card{    
+    border-radius: 16px;
+    padding: 26px;
+}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+.contact-stack{display:grid;gap:10px;}
+.contact-textarea{display:grid;gap:10px;height:100%;}
+.contact-message{min-height:100%;min-height:260px;}
+.contact-actions{display:flex;justify-content:flex-end;}
+.contact-submit{width:160px;}
+
+.error-text{color:var(--accent-red);font-size:0.9rem;font-weight:700;margin-top:6px;}
+.input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="true"]{
+    border-color:var(--accent-red);
+    box-shadow:0 0 0 7px rgba(244,67,54,0.12);
+}
+
+/* AUTH & FORMS */
+.auth-section,
+.apply-section {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: transparent;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: min(520px, 92vw);
+}
+
+.form-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 0;
+    color: var(--text);
+}
+
+.toggle-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: 2px solid var(--accent-green);
+    border-radius: 12px;
+    color: var(--text);
+    padding: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all .15s ease;
+}
+
+.toggle-btn.active {
+    background: var(--accent-green);
+    color: #041;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+}
+
+.auth-links-row {
+    text-align: center;
+    font-weight: 600;
+}
+
+.auth-links-row a {
+    color: var(--accent-teal);
+}
+
+.register-hero-wrap {
+    min-height: calc(100vh - 140px);
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 28px;
+    align-items: center;
+    padding: 60px 0 50px;
+}
+
+.register-info {
+    background: linear-gradient(145deg, #134d62, #0c1f3b);
+    border-radius: 22px;
+    padding: 36px 30px;
+    box-shadow: 0 26px 48px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #dff8f6;
+}
+
+.register-info h1 {
+    margin: 0 0 12px;
+    font-size: 2.5rem;
+    font-family: 'Sora', sans-serif;
+}
+
+.register-info .subtle {
+    display: block;
+    font-size: 1.05rem;
+    color: rgba(223, 248, 246, 0.82);
+    max-width: 520px;
+    margin-bottom: 18px;
+}
+
+.register-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.register-pill {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(0, 199, 199, 0.14);
+    color: #dff8f6;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(0, 199, 199, 0.22);
+}
+
+
+.register-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.register-tab {
+    background: transparent;
+    border: 2px solid rgba(0, 199, 199, 0.6);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all .12s ease;
+}
+
+.register-tab.active {
+    background: linear-gradient(120deg, #00c7c7, #7c1fd2);
+    color: #041;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+.register-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.register-form .full {
+    grid-column: 1 / -1;
+}
+
+.register-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+.register-note {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 10px;
+}
+
+
+
+.dashboard-main{padding:34px 28px;display:flex;flex-direction:column;gap:22px;}
+.dashboard-main h1{margin:0;font-size:2.6rem;font-family:'Sora',sans-serif;}
+.dashboard-main h2{margin:0;font-size:1.2rem;font-weight:800;}
+
+.profile-hero{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;}
+.profile-hero .big-avatar{width:180px;height:180px;border-radius:50%;background:#d7d7d7;box-shadow:0 16px 32px rgba(0,0,0,0.45);} 
+.profile-jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+
+/* JOB LISTING GRID */
+
+.job-section{padding:70px 0;}
+.job-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;}
+.job-card{background:var(--card-muted);border-radius:10px;box-shadow:0 18px 28px rgba(0,0,0,0.45);padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px;color:#fff;} 
+.job-header{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.job-company{font-size:1.2rem;font-weight:800;}
+.job-location{color:#f3b1b1;display:flex;align-items:center;gap:8px;font-weight:600;}
+.job-role{font-size:1.35rem;font-weight:800;margin:6px 0 0;}
+.job-meta{display:flex;gap:12px;flex-wrap:wrap;color:#cfcfcf;font-size:0.9rem;align-items:center;}
+.job-meta span{display:flex;align-items:center;gap:6px;}
+.job-desc{color:#f1f1f1;font-weight:500;line-height:1.35;min-height:82px;}
+.job-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+.job-salary{color:var(--accent-green);font-weight:900;}
+.job-apply{min-width:120px;background:var(--accent-green);color:#053;font-size:1.05rem;border-radius:10px;border:none;padding:10px 18px;cursor:pointer;font-weight:800;box-shadow:0 12px 22px rgba(0,0,0,0.45);} 
+
+/* APPLY FORM */
+
+.apply-card{width:min(1000px,94vw);gap:22px;}
+.apply-textarea textarea{min-height:260px;background:#dcdcdc;color:#444;border-radius:12px;border:none;padding:16px;font-size:1rem;}
+.apply-textarea textarea:focus{outline:3px solid var(--accent-teal);box-shadow:0 0 0 7px rgba(0,199,199,0.1);} 
+.apply-row{display:flex;flex-direction:column;gap:8px;}
+.apply-actions{display:flex;gap:12px;align-items:center;}
+
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.application-card {
+    background: var(--card-muted);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.application-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.application-info .company {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.application-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.applied-date {
+    font-size: 0.8rem;
+    color: #e0e0e0;
+}
+
+/* Status Pills */
+.status {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Status States */
+.status.pending {
+    background: rgba(255, 193, 7, 0.22);
+    color: #ffc107;
+}
+
+.status.reviewed {
+    background: rgba(0, 199, 199, 0.22);
+    color: var(--accent-teal);
+}
+
+.status.accepted {
+    background: rgba(0, 209, 45, 0.25);
+    color: var(--accent-green);
+}
+
+.status.rejected {
+    background: rgba(244, 67, 54, 0.25);
+    color: var(--accent-red);
+}
+
+/* COMPANY FORM */
+.company-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+    margin-top: 10px; /* Added to create space below the header actions */
+}
+.company-form .full {
+    grid-column: 1 / -1;
+}
+
+
+
+/* =========================================
+   9. EMPLOYER PAGES (My Postings Customization)
+   ========================================= */
+
+/* * This class ensures the main content area has the right padding/flow 
+ * when used inside the dashboard-shell grid.
+ */
+.dashboard-main {
+    padding: 34px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Ensure the elements in the job-card footer are vertically centered */
+.job-card .job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items like button and text vertically */
+    margin-top: auto;
+}
+
+/* Custom style for the Applications Count text (e.g., '4 Applications') */
+.job-card .applications-count {
+    color: var(--accent-teal); /* Highlights the number of applicants */
+    font-weight: 900;
+    font-size: 1.05rem;
+}
+
+/* Style for the "View Applicants" button */
+.job-card .btn-view-applicants {
+    background: var(--accent-teal);
+    color: #043; /* Dark text for contrast */
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.job-card .btn-view-applicants:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================================
+   10. VIEW APPLICANTS PAGE STYLES
+   ========================================= */
+
+/* General list container */
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Individual application card layout */
+.application-card {
+    background: var(--card); /* Darker background for contrast */
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align content to the top */
+    box-shadow: var(--shadow);
+    transition: background 0.2s;
+}
+
+.application-card:hover {
+    background: var(--panel); /* Subtle hover effect */
+}
+
+/* Left side content (Applicant details) */
+.application-info {
+    flex-grow: 1;
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.application-info h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0;
+}
+
+.application-info .company {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.cover-letter-snippet {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding-left: 10px;
+    border-left: 3px solid var(--accent-teal); /* Visual separation for the snippet */
+}
+
+.view-resume-link {
+    color: var(--accent-teal);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 8px;
+    text-decoration: underline;
+}
+
+/* Right side content (Date and Status) */
+.application-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.applied-date {
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* Status Selector Customization (Reuses .input class) */
+.status-select-employer {
+    width: 140px;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: 2px solid var(--accent-teal); /* High contrast border */
+    color: var(--text);
+    background-color: var(--card);
+}
+/* Optional: Style the select based on the current status (using JS/Backend later) */
+.status-select-employer.reviewed {
+    border-color: var(--accent-green);
+}
+
+
+
+
+/* FORCE CENTER REGISTER PAGE */
+.register-hero-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.register-card {
+    width:54%;
+    margin: 0 auto !important;
+}
+
+/* =========================================
+   11. EMPLOYER DASHBOARD CLEANUP (FINAL FIX)
+   ========================================= */
+
+/* New class to replace inline style on the header links (Sign Out/Job Listings) */
+.dashboard-header-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+/* Updated .company-form to include the top margin (was inline style) */
+.company-form {
+    /* Existing styles are already here. We only need the margin. */
+    margin-top: 3px !important; 
+}
+
+/* =========================================
+    JOB LISTINGS (INDEX.PHP)
+   ========================================= */
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.job-card {
+    background: var(--card);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    color: var(--text);
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-purple);
+}
+
+.job-card h3 {
+    margin-top: 0;
+    color: var(--text);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.company-name {
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.job-details {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.job-details span i {
+    margin-right: 5px;
+    color: var(--accent-teal);
+}
+
+.salary {
+    font-weight: bold;
+    color: var(--accent-green);
+    margin-bottom: 15px;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    background: var(--accent-purple);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-sm:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+    .job-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .job-grid {
+        grid-template-columns: 1fr;
+    }
+}

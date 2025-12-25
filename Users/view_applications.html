@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobLaunch | View Applicants</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../style.css"> 
+</head>
+<body class="page-wrap">
+    <header class="navbar">
+        <div class="brand">JobLaunch</div>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+        <div class="nav-drawer">
+            <div class="auth-links">
+                <a href="../login.html">Login</a>
+                <span class="divider">|</span>
+                <a href="../register.html">Register</a>
+            </div>
+            <div class="nav-links">
+                <a class="active" href="../index.html">Home</a>
+                <a href="../catagories.html">Categories</a>
+                <a href="../about.html">AboutUs</a>
+                <a href="../contact.html">ContactUs</a>
+            </div>
+        </div>
+    </header>
+  <section class="dashboard-section container">
+    <div class="dashboard-shell">
+      <aside class="sidebar">
+        <div class="avatar" style="background:#dcdcdc;"></div>
+        <h3>Company Name</h3>
+        <nav>
+          <a href="post_job.html">Post New Job</a>
+          <a href="my_posting.html">Total Job Posted</a>
+          <a class="active" href="view_applications.html">Total Applicants</a>
+          <!-- <a href="my_posting.html">Manage Jobs</a> -->
+          <a href="settings.html">Setting</a>
+          <a href="more.html">More</a>
+        </nav>
+      </aside>
+
+      <div class="dashboard-main">
+        <div style="display:flex;justify-content:flex-end;gap:18px;flex-wrap:wrap;">
+          <a href="#">Sign Out</a>
+          <a href="../catagories.html">Job Listings</a>
+        </div>
+        
+        <h1 class="section-title" style="text-align: left; margin-top: 20px;">
+            Applicants for: <span id="job_title_display" style="color:var(--accent-teal);">Web Developer (Junior)</span>
+        </h1>
+        
+        <a href="company-manage.html" class="btn btn-ghost" style="width: fit-content; align-self: flex-start;">
+            &larr; Back to Postings
+        </a>
+
+        <div class="applications-list">
+            <!-- Applications will be dynamically loaded here -->
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

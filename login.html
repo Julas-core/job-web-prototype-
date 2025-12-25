@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobLaunch | Sign In</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-wrap">
+  <header class="navbar">
+    <div class="brand">JobLaunch</div>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    <div class="nav-drawer">
+      <div class="auth-links">
+        <a href="login.html">Login</a>
+        <span class="divider">|</span>
+        <a href="register.html">Register</a>
+      </div>
+      <div class="nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="catagories.html">Categories</a>
+        <a href="about.html">AboutUs</a>
+        <a href="contact.html">ContactUs</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="auth-section">
+    <div class="form-card">
+      <h1 class="form-title">What are you?</h1>
+      
+      <!-- FIXED: Added action and method -->
+      <form class="login-form" action="backendwithphp/login.php" method="POST">
+        
+        <!-- ADD THIS HIDDEN INPUT -->
+        <input type="hidden" name="role_type" id="role_type" value="job_seeker">
+
+        <div class="toggle-group" role="group" aria-label="Select role">
+          <!-- ADD ONCLICK EVENTS -->
+          <button class="toggle-btn active" type="button" onclick="setRole('job_seeker', this)">Seeker</button>
+          <button class="toggle-btn" type="button" onclick="setRole('company', this)">Employer</button>
+        </div>
+
+        <input class="input" name="email" type="email" placeholder="Email" aria-label="Email" required>
+        <input class="input" name="password" type="password" placeholder="Password" aria-label="Password" required minlength="6">
+
+        <button class="btn btn-green" type="submit">Login</button>
+        <div class="auth-links-row">Create an account? <a href="register.html">Register</a></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ADD THIS SCRIPT -->
+  <script>
+    function setRole(role, btn) {
+        // Update the hidden input value
+        document.getElementById('role_type').value = role;
+        
+        // Update the visual button state
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
